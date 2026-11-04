@@ -23,23 +23,7 @@ The objective is to improve data quality by detecting missing values, invalid en
 - 📓 **Jupyter Notebook** – Python execution and analysis.
 - 📊 **SQL Queries** – Data validation and transformation.
 
-## 📂 Project Structure
 
-```text
-4A_Advanced_Data_Cleansing_Fixing_Corrupt_Data/
-│
-├── Python/
-│   └── Advanced_Data_Cleansing.ipynb
-│
-├── MySQL/
-│   └── Advanced_Data_Cleansing.sql
-│
-├── Data/
-│   ├── Employee_Data.csv
-│   └── Cleaned_Employee_Data.csv
-│
-└── README.md
-```
 
 ## 🔍 Tasks Performed
 
