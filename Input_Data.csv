@@ -1,0 +1,9 @@
+Employee_ID,Name,Age,Salary,Department
+101,Rahul,25,25000.00,IT
+102,Priya,30,35000.00,HR
+103,Amit,-5,40000.00,Finance
+104,Sneha,28,-1000.00,IT
+105,NULL,150,50000.00,NULL
+106,Rohit,NULL,30000.00,HR
+107,Neha,26,NULL,it
+107,Neha,26,NULL,it
