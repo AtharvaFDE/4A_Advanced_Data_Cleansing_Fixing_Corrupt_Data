@@ -2,9 +2,9 @@
 
 ## 📌 Project Overview
 
-This project focuses on identifying, analyzing, and cleaning corrupted or invalid data using **MySQL and Python (Pandas)**.
+This project focuses on identifying, analyzing, and cleaning corrupted or invalid data using **MySQL**.
 
-The objective is to improve data quality by detecting missing values, invalid entries, inconsistent records, and duplicate data, then applying appropriate cleaning techniques.
+The objective is to improve data quality by detecting missing values, invalid entries, inconsistent records, and duplicate data, then applying appropriate SQL techniques to clean and validate the dataset.
 
 ## 🎯 Objectives
 
@@ -18,23 +18,23 @@ The objective is to improve data quality by detecting missing values, invalid en
 
 ## 🛠️ Technologies Used
 
-- 🗄️ **MySQL** – Data analysis and database cleansing.
-- 🐍 **Python** – Data cleaning using Pandas and NumPy.
-- 📓 **Jupyter Notebook** – Python execution and analysis.
-- 📊 **SQL Queries** – Data validation and transformation.
+- 🗄️ **MySQL Server** – Database management and data cleansing.
+- 💻 **MySQL Workbench** – SQL query execution and database analysis.
 
+## 📋 Prerequisites
 
+- MySQL Server 8.0+
+- MySQL Workbench 8.0+
 
 ## 🔍 Tasks Performed
 
 ### 1. Data Analysis
 - Analyzed datasets for inconsistencies.
-- Checked dataset structure and statistical information.
+- Checked database records and data quality.
 - Identified corrupted and suspicious records.
 
 ### 2. Identifying Missing Values
-- Used `IS NULL` in MySQL.
-- Used `isnull()` in Python.
+- Used `IS NULL` to identify missing values.
 - Identified missing names, ages, salaries, and departments.
 
 ### 3. Detecting Invalid Values
@@ -47,8 +47,7 @@ The objective is to improve data quality by detecting missing values, invalid en
 - Used `UPDATE` to replace missing and invalid values.
 - Used `DELETE` to remove unwanted records.
 - Used `ROW_NUMBER()` window function to identify duplicate records.
-- Used `fillna()` in Python to handle missing values.
-- Used `drop_duplicates()` to remove duplicate records.
+- Used `DISTINCT` to eliminate identical duplicate records.
 - Standardized department names using `UPPER()`.
 
 ### 5. Data Validation
@@ -70,20 +69,25 @@ The objective is to improve data quality by detecting missing values, invalid en
 | `HAVING` | Filter duplicate groups |
 | `ROW_NUMBER()` | Identify duplicate rows |
 | `CTE` | Organize cleaning queries |
-| `DISTINCT` | Remove duplicate records |
+| `DISTINCT` | Remove identical duplicate records |
+| `UPPER()` | Standardize text values |
 | `CHECK` | Enforce data validation |
+| `UNIQUE` | Prevent duplicate values |
 
-### Example: Identify Missing Values
+## 📝 SQL Query Examples
+
+### 1. Identify Missing Values
 
 ```sql
 SELECT *
 FROM Employees
 WHERE Name IS NULL
    OR Age IS NULL
-   OR Salary IS NULL;
+   OR Salary IS NULL
+   OR Department IS NULL;
 ```
 
-### Example: Identify Invalid Ages
+### 2. Identify Invalid Ages
 
 ```sql
 SELECT *
@@ -91,7 +95,15 @@ FROM Employees
 WHERE Age < 18 OR Age > 60;
 ```
 
-### Example: Identify Duplicate Records Using Window Function
+### 3. Identify Invalid Salaries
+
+```sql
+SELECT *
+FROM Employees
+WHERE Salary <= 0;
+```
+
+### 4. Identify Duplicate Records Using Window Function
 
 ```sql
 WITH Duplicate_CTE AS (
@@ -107,7 +119,7 @@ FROM Duplicate_CTE
 WHERE row_num > 1;
 ```
 
-### Example: Remove Duplicate Records
+### 5. Remove Duplicate Records
 
 ```sql
 WITH Duplicate_CTE AS (
@@ -126,47 +138,12 @@ WHERE Row_ID IN (
 );
 ```
 
-## 🐍 Python Concepts Used
+### 6. Standardize Department Names
 
-| Python Function | Purpose |
-|---|---|
-| `head()` | Display initial records |
-| `info()` | Check dataset information |
-| `describe()` | Generate statistical summary |
-| `isnull()` | Identify missing values |
-| `fillna()` | Replace missing values |
-| `between()` | Perform range checks |
-| `loc[]` | Update selected records |
-| `drop_duplicates()` | Remove duplicate records |
-| `str.upper()` | Standardize text |
-| `to_csv()` | Export cleaned dataset |
-
-### Example: Handle Missing Values
-
-```python
-df['Name'] = df['Name'].fillna('Unknown')
-
-df['Age'] = df['Age'].fillna(df['Age'].mean())
-
-df['Salary'] = df['Salary'].fillna(df['Salary'].mean())
-```
-
-### Example: Remove Duplicate Records
-
-```python
-df = df.drop_duplicates()
-```
-
-### Example: Validate Cleaned Data
-
-```python
-print(df.isnull().sum())
-
-print(df[df['Age'] < 18])
-
-print(df[df['Salary'] <= 0])
-
-print(df.duplicated().sum())
+```sql
+UPDATE Employees
+SET Department = UPPER(Department)
+WHERE Department IS NOT NULL;
 ```
 
 ## 📊 Expected Outcomes
@@ -178,25 +155,25 @@ After completing this project:
 - Duplicate records are detected and removed.
 - Inconsistent department names are standardized.
 - Data quality and consistency are improved.
-- Cleaned data is validated and exported.
+- Cleaned data is validated successfully.
 
 ## 📚 Key Learnings
 
 - Practical data-cleaning techniques using MySQL.
-- Handling missing and corrupted data using Python.
+- Handling missing and corrupted data.
 - Applying SQL Window Functions.
 - Identifying duplicate records using `ROW_NUMBER()`.
 - Using CTEs for structured SQL queries.
-- Data validation and quality improvement.
+- Data validation and database integrity.
 
 ## 👨‍💻 Author
 
 **Atharva**
 
-Software Developer | SQL | Python | Data Analytics
+Software Developer | MySQL | SQL | Data Analytics
 
 ---
 
 ⭐ If you find this project useful, feel free to explore the repository and learn from the implementation.
 
-#DataCleaning #MySQL #Python #Pandas #DataAnalytics #SQL #JupyterNotebook #DataQuality
+#MySQL #SQL #DataCleaning #DataCleansing #DataAnalytics #WindowFunctions #DataQuality #MySQLWorkbench
